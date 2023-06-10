@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ddd</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .navbar-brand:hover{
+            background-image: linear-gradient(to right, #ebccd1 0%, #a6e1ec 0%, #c9e2b3 0%, #fff9ec 30%, #c2ce9c 64%, #7edbdc 100%);
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="shoppingdemo.jsp">YGJ商城后台管理</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-11">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="shoppingdemo.jsp">首页</a>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="getcar">添加商品</a>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="#">添加类别</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-md-2">
+                                <div class="navbar-header">
+                                    <a class="navbar-brand" href="#">管理用户</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!--分-->
+<div class="container">
+    <div class="row">
+            <div class="col-md-11">
+                <div class="page-header">
+                    <h3>添加
+                        <small>商品</small>
+                    </h3>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <form action="${pageContext.request.contextPath}/addInfoma" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <ul>
+                            <li style="display: none">
+                                <label><span>报修人id:</span></label>
+                                <input type="text" name="r_id" value="${r_id}">
+                            </li>
+                            <li>
+                                <label><span>报&nbsp;修&nbsp;人&nbsp;: </span></label>
+                                <input  type="text" name="r_name" value="${r_name}" >
+                                <input " type="text" value="${r_name}">
+                            </li>
+                            <li>
+                                <label><span>宿&nbsp;舍&nbsp;号&nbsp;: </span></label>
+                                <input style="display: none" type="text"name="r_address" value="${r_address}">
+                                <input disabled="disabled" type="text" value="${r_address}">
+                            </li>
+                            <li>
+                                <label style="vertical-align: top"><span>故障描述:</span></label>
+                                <textarea type="text" onblur="gz()" id="f_description" name="f_description" style="resize:none;" ></textarea>
+                            </li>
+                            <li>
+                                <label><span>图片上传: </span></label>
+                                <input  type="file" name="img_url">
+                            </li>
+                            <script src="static/js/jquery-1.11.3.js"></script>
+                            <script>
+                                function gz(){
+                                    let reg = /^[^\s]+[\s]*.*$/
+                                    if(!reg.exec($("#f_description").val())){
+                                        alert('请输入合法的故障描述')
+                                        $("#f_description").val('');
+                                    }
+                                }
+                            </script>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">提交申请</button>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

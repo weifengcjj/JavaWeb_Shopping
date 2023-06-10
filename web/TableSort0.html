@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <title></title>
+    <style>
+        .name {
+            position: relative;
+        }
+
+        .arrUp {
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-bottom-color: #ccc;
+            cursor: pointer;
+        }
+
+        .arrDown {
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #ccc;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" class="container">
+    <table class="table table-bordered table-hover">
+        <thead id="thead" >
+        <tr class="active info">
+            <th data-direction="asc" data-sort="id">id
+                <div id="shengid" class="arrUp"></div>
+                <div id="jiangid" class="arrDown"></div>
+            </th>
+            <th data-direction="asc" data-sort="name">姓名
+                <div id="shengname" class="arrUp"></div>
+                <div id="jiangname" class="arrDown"></div>
+            </th>
+            <th data-direction="asc" data-sort="age">年龄
+                <div id="shengage" class="arrUp"></div>
+                <div id="jiangage" class="arrDown"></div>
+            </th>
+            <th data-direction="asc" data-sort="sex">性别
+                <div id="shengsex" class="arrUp"></div>
+                <div id="jiangsex" class="arrDown"></div>
+            </th>
+        </tr>
+        </thead>
+        <tbody id="tbody" class="t">
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+<script>
+    function demo1(x1,num)//排序规则，num 1从小到大 其他，从大到小
+    {
+    if(num)
+    {
+    return function (object1, object2) {
+    let a = object1[x1];
+    let b = object2[x1];
+    return a-b;
+    }
+    }
+    return function (object1, object2) {
+    let a = object1[x1];
+    let b = object2[x1];
+    return b-a;
+    }
+    }
+    function sortChinese (arr, dataLeven) { // 参数：arr 排序的数组; dataLeven 数组内的需要比较的元素属性
+    function getValue (option) {
+    if (!dataLeven) return option
+    var data = option
+    dataLeven.split('.').filter(function (item) {
+    data = data[item]
+    })
+    return data + ''
+    }
+    arr.sort(function (item1, item2) {
+    return getValue(item1).localeCompare(getValue(item2), 'zh-CN');
+    })
+    }//中文排序
+    const student = [
+    {
+    stuid: '1001',
+    stuname: '张三',
+    stuage: 18,
+    stusex: '男'
+    },
+    {
+    stuid: '1002',
+    stuname: '李四',
+    stuage: 19,
+    stusex: '女'
+    },
+    {
+    stuid: '1003',
+    stuname: '王五',
+    stuage: 56,
+    stusex: '男'
+    },
+    {
+    stuid: '1004',
+    stuname: '吴六',
+    stuage: 18,
+    stusex: '男'
+    }
+    ];//学生数组
+    function come(data)//动态实现表格
+    {
+    let table='<tbody id="tbody">';
+for (var i=0;i<data.length;i++)
+{
+
+table+='<tr>';
+    for (let demo in data[i]) {
+    table+='<td>'+data[i][demo]+'</td>';
+    }
+    table+='</tr>';
+}
+table+='</tbody></table>';
+    return table;
+    }
+    //动态生成的所有表格
+    var comedo=document.getElementById('tbody');
+    var test=come(student);
+    comedo.innerHTML=test;
+
+    let shengid=document.getElementById("shengid");
+    shengid.onclick=function (){
+    student.sort(demo1("stuid",1));
+    test=come(student);
+    console.log(student);
+    comedo.innerHTML=test;
+    }
+    let jiangid=document.getElementById("jiangid");
+    jiangid.onclick=function (){
+    student.sort(demo1("stuid"));
+    test=come(student);
+    console.log(student);
+    comedo.innerHTML=test;
+    }
+
+    let shengdemo=document.getElementById("shengname");
+    shengdemo.onclick=function (){
+    sortChinese(student,"stuname");
+    test=come(student);
+    console.log(student);
+    comedo.innerHTML=test;
+    }
+
+    let sheng=document.getElementById("shengage");
+    sheng.onclick=function (){
+    student.sort(demo1("stuage",1));
+    test=come(student);
+    console.log(student);
+    comedo.innerHTML=test;
+    }
+
+    let jiang=document.getElementById("jiangage");
+    jiang.onclick=function (){
+    student.sort(demo1("stuage"));
+    test=come(student);
+    console.log(student);
+    comedo.innerHTML=test;
+    }
+
+    let shengsex=document.getElementById("shengsex")
+    shengsex.onclick=function (){
+    sortChinese(student,"stusex");
+    test=come(student);
+    console.log(student);
+    comedo.innerHTML=test;
+    }
+</script>

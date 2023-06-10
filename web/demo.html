@@ -1,0 +1,211 @@
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>书城首页</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .title-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: #8E2323;
+            text-align: center;
+            height: 39px;
+        }
+        .title-tit {
+            font-size: 15px;
+            font-weight: 500;
+            color: #8E2323;
+            text-align: center;
+            height: 20px;
+        }
+        .title-tex {
+            text-align: center;
+        }
+
+
+        #conn{
+            width: 500px;
+            height: 400px;
+            overflow: hidden;
+        }
+        #phtot{
+            width: 1200px;
+            animation: switch 5s ease-out infinite;
+        }
+        #phtot > img{
+            float: left;
+            width: 400px;
+            height: 300px;
+        }
+        @keyframes switch {
+            0%,25%{
+                margin-left:0;
+            }
+            35%,60%{
+                margin-left:-300px;
+            }
+            70%,100%{
+                margin-left:-700px;
+            }
+        }
+        .aa:hover{
+            border-radius: 10%;
+            cursor:pointer;
+            /* transform属性 */
+            transform:translate(0,-20px)
+        }
+    </style>
+</head>
+<body style="background-color: #e5e5e5">
+
+<!--头部-->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="zhuye1">YGJ商城</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="register.jsp"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+            <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+        </ul>
+    </div>
+</nav>
+<!--导航条-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="zhuye1">首页</a>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="getcar">我的购物车</a>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="getorder">我的订单</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default navbar-btn">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                data-toggle="dropdown">
+                                            我的中心 <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li class="divider"></li>
+                                            <li><a href="getcar">购物车</a></li>
+                                        </ul>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+
+</div>
+
+        </div>
+        <!--轮播图-->
+        <div class="container text-nowrap">
+            <div class="row">
+                <div class="col-md-1">
+                    <ul class="nav nav-pills nav-stacked">
+
+                        <%--                <li><a href="#">文学</a></li>--%>
+                        <%--                <li><a href="#">名著</a></li>--%>
+                        <%--                <li><a href="#">科技</a></li>--%>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+
+                </div>
+
+                <div class="col-md-3">
+                    <h5 style="margin-left:5px;">最新动态</h5>
+                    <ul>
+                        <li style="margin-top: 10px"><a target="_blank" href="http://cpc.people.com.cn/n1/2023/0311/c64094-32641777.html">习近平当选为中华人民共和国主席</a></li>
+                        <li style="margin-top: 10px"><a target="_blank" href="https://www.163.com/dy/article/HVHU8THL0529MKNM.html">董明珠:大学生打螺钉没什么不可以</a></li>
+                        <li style="margin-top: 10px"><a target="_blank" href="https://baijiahao.baidu.com/s?id=1760023608923429853">委员称年轻人想躺平更多是调侃</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--分行-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="page-header">
+                        <h3>精选
+                            <small>商品</small>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--精选-->
+        <div class="container">
+            <div class="col-md-3">
+                <p>
+                <h5 class="title-tit" style="CURSOR:pointer">微风细雨-梦之雫</h5>
+                </p>
+                <img src="image/jingxuan.jpg" style="width: 300px;height: 330px;"/>
+            </div>
+            <div class="col-md-9">
+                <div id="conn">
+                    <div id="phtot">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--结尾-->
+        <div class="row">
+            <div class="col-md-12 bg-success">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-1 bg-success">
+                                <h1 class="title-text">YGJ商城</h1>
+                            </div>
+                            <div class="col-md-3 bg-success">
+                                <h3 class="title-text">关于商城</h3>
+                                <h5 class="title-tex">最新消息</h5>
+                                <h5 class="title-tex">经营范畴</h5>
+                                <h5 class="title-tex">质量保证</h5>
+                                <h5 class="title-tex">社会责任</h5>
+                            </div>
+                            <div class="col-md-2 bg-success">
+                                <h3 class="title-text">投资者关系</h3>
+                                <h5 class="title-tex">蒲公英</h5>
+                                <h5 class="title-tex">一楼公告</h5>
+                            </div>
+                            <div class="col-md-2 bg-success">
+                                <h3 class="title-text">关注我们</h3>
+
+                                <h5 class="title-tex">信息技术系</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
